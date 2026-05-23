@@ -4,7 +4,7 @@ services:
     env: python
     plan: free
     buildCommand: 'pip install -r requirements.txt'
-    startCommand: 'gunicorn photo_album.wsgi'
+    startCommand: 'gunicorn photo_album.wsgi:application'
     envVars:
       - key: DJANGO_SETTINGS_MODULE
         value: photo_album.settings

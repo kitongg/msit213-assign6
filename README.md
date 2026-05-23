@@ -28,8 +28,4 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-Live Application URL: The direct link to your deployed application on Render.
-
-Deployment: intended for Render. Use environment variables for `SECRET_KEY`, `DATABASE_URL`, and `CLOUDINARY_URL`, and set `DJANGO_SETTINGS_MODULE=photo_album.settings`.
-
-Render setup: `render.yaml` provisions PostgreSQL via `DATABASE_URL`; add `CLOUDINARY_URL` in Render environment settings to enable Cloudinary media storage.
+Deployment: intended for Render. Use environment variables for `SECRET_KEY`, `DATABASE_URL`, `CLOUDINARY_URL`, and set `DJANGO_SETTINGS_MODULE=photo_album.settings.production`.

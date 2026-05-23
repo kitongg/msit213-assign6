@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="mb-3 d-flex justify-content-between align-items-center">
+        <div>
+            <h2 class="mb-0">{{ album.title }}</h2>
+            <p class="text-muted">{% if album.owner %}by {{ album.owner }}{% else %}by Anonymous{% endif %}</p>
+        </div>
+        <div>
+            <a class="btn btn-outline-secondary btn-sm me-2" href="{% url 'albums:album-edit' album.pk %}">Edit album</a>
+            <a class="btn btn-outline-danger btn-sm" href="{% url 'albums:album-delete' album.pk %}">Delete album</a>
+        </div>
+    </div>
+
+    <p>{{ album.description }}</p>
+
+    <div class="row row-cols-1 row-cols-sm-2 g-3">
+        {% for photo in album.photos.all %}
+        <div class="col">
+            <div class="card">
+                {% if photo.image %}
+                <img src="{{ photo.image.url }}" class="card-img-top" alt="{{ photo.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ photo.title }}</h5>
+                    <a class="btn btn-sm btn-outline-secondary me-2" href="{% url 'albums:photo-edit' photo.pk %}">Edit</a>
+                    <a class="btn btn-sm btn-outline-danger" href="{% url 'albums:photo-delete' photo.pk %}">Delete</a>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">No photos.</div>
+        {% endfor %}
+    </div>
+
+    <div class="mt-3">
+        <a class="btn btn-primary" href="{% url 'albums:photo-add' album.pk %}">Add photo</a>
+    </div>
+{% endblock %}

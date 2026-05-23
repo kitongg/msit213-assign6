@@ -1,0 +1,10 @@
+/* Small bootstrap overrides */
+body { background: #f8f9fa; color: #212529; }
+.card { border-radius: 8px; }
+.card-img-top { width:100%; height:auto; }
+@media (max-width: 576px) {
+  .card-img-top { height:auto; }
+}
+.btn { border-radius: 6px; }
+.navbar-brand { font-weight: 700; }
+.footer { padding: 12px 0; }
